@@ -1,31 +1,46 @@
 import React, { useState } from 'react';
-import { LogIn, ShieldCheck, BarChart3 } from 'lucide-react';
-import { auth } from '../lib/firebase';
-import { 
-  GoogleAuthProvider, 
-  signInWithRedirect,  // <-- UBAH INI
-  getRedirectResult    // <-- UBAH INI
-} from 'firebase/auth';
-
-export const Login: React.FC = () => {
-  const [error, setError] = useState<string | null>(null);
-
-  React.useEffect(() => {
-    const checkRedirectResult = async () => {
-      try {
-        const result = await getRedirectResult(auth);
-        if (result) {
-          console.log('Login success:', result.user);
-          // Nanti otomatis masuk ke dashboard
-        }
-      } catch (error: any) {
-        console.error('Error:', error);
-        setError(error.message);
-      }
+ import { LogIn, ShieldCheck, BarChart3 } from 'lucide-react';
+ import { auth } from '../lib/firebase';
+ import { 
+   GoogleAuthProvider, 
+   signInWithRedirect,
+   getRedirectResult
+ } from 'firebase/auth';
+ import { useNavigate } from 'react-router-dom'; // <-- TAMBAH INI
+ export const Login: React.FC = () => {
+   const [error, setError] = useState<string | null>(null);
+   const navigate = useNavigate(); // <-- TAMBAH INI
+   React.useEffect(() => {
+     const checkRedirectResult = async () => {
+       try {
+         const result = await getRedirectResult(auth);
+         if (result) {
+           console.log('Login success:', result.user);
+           navigate('/dashboard'); // <-- TAMBAH INI
+         }
+       } catch (error: any) {
+         console.error('Error:', error);
+         setError(error.message);
+       }
+     };
+     checkRedirectResult();
+   }, [navigate]); // <-- TAMBAH INI
+   const handleGoogleLogin = async () => {
+     const provider = new GoogleAuthProvider();
+     provider.addScope('profile');
+     provider.addScope('email');
+     
+     setError(null);
+     try {
+       await signInWithRedirect(auth, provider);
+     } catch (error: any) {
+       console.error('Error:', error);
+       setError(error.message);
+     }
     };
 
     checkRedirectResult();
-  }, []);
+  },[navigate]);
 
   const handleGoogleLogin = async () => {
     const provider = new GoogleAuthProvider();
