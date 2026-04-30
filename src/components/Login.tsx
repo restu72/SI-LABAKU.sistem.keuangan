@@ -46,7 +46,7 @@ export const Login: React.FC = () => {
 }
   
   }
-};
+
 
   return (
     <div className="min-h-screen bg-brand-bg flex items-center justify-center p-4">
@@ -109,7 +109,7 @@ export const Login: React.FC = () => {
 </div>
 
         <p className="text-center text-[10px] text-brand-muted font-black opacity-30 uppercase tracking-[0.4em]">
-          V 1.0.0 SI-LABA
+          V 1.0.0 SI-LABAKU
         </p>
       </div>
     </div>

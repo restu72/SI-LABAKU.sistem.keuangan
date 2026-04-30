@@ -112,20 +112,21 @@ export const Dashboard: React.FC<DashboardProps> = ({
       {/* Header Profile Section */}
       <div className="bg-brand-card p-6 md:p-8 rounded-[32px] border border-brand-border shadow-sm relative overflow-hidden group">
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-          <div className="flex items-center gap-4">
-            <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-brand-primary flex items-center justify-center text-white shadow-xl shadow-brand-primary-20">
-              <img src="/logo-baru.png" alt="Logo SI LABAKU" className="w-8 h-8 md:w-10 md:h-10  object-contain />
-            </div>
-            <div>
-              <h1 className="text-xl md:text-3xl font-black tracking-tighter uppercase leading-none">
-                <span className="text-brand-orange">SI</span>
-                <span className="text-brand-primary ml-1">LABAKU</span>
-              </h1>
-              <p className="text-[10px] md:text-sm text-brand-muted font-bold mt-1 uppercase tracking-widest opacity-60">
-                {businessProfile.name || "Dashboard Bisnis Anda"}
-              </p>
-            </div>
-          </div>
+         <div className="flex items-center gap-3">
+  <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-brand-primary flex items-center justify-center">
+    <img src="/logo-baru.png" alt="Logo SI LABAKU" className="w-6 h-6 md:w-8 md:h-8 object-contain" />
+  </div>
+
+  <div className="flex flex-col">
+    <h1 className="text-xl md:text-2xl font-black tracking-tighter">
+      <span className="text-brand-orange">SI</span>
+      <span className="text-brand-primary ml-1">LABAKU</span>
+    </h1>
+    <p className="text-[10px] md:text-sm text-brand-muted font-bold mt-1 uppercase tracking-widest opacity-60">
+      {businessProfile.name || "Dashboard Bisnis Anda"}
+    </p>
+  </div>
+</div>
           <div className="bg-brand-accent px-4 py-2 rounded-2xl border border-brand-primary-10 self-start md:self-center">
             <p className="text-[9px] font-black text-brand-primary uppercase tracking-[0.2em] mb-0.5">
               Status Laporan

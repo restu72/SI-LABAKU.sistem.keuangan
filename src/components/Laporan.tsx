@@ -206,18 +206,23 @@ export const Laporan: React.FC<LaporanProps> = ({ sales, expenses, businessProfi
       >
         <div className="bg-brand-text text-white p-5 md:p-6 text-left relative overflow-hidden border-b-4 border-brand-primary">
           <div className="relative z-10 flex flex-row items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-brand-primary flex items-center justify-center text-white shadow-lg shrink-0">
-                <img src="/logo-baru.png" alt="Logo SI LABAKU" className="w-6 h-6 md:w-8 md:h-8 object-contain />
-              </div>
-              <div className="flex flex-col">
-                <h1 className="text-xl md:text-2xl font-black tracking-tighter flex items-center leading-none">
-                  <span className="text-[#f97316]">SI</span>
-                  <span className="text-brand-primary ml-1 italic uppercase">LABAKU</span>
-                </h1>
-                <p className="text-[#ffffff44] text-[7px] md:text-[9px] font-black uppercase tracking-[0.2em] mt-0.5">Report System</p>
-              </div>
-            </div>
+            
+                <div className="flex items-center gap-3">
+                <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-brand-primary flex items-center justify-center">
+    <img src="/logo-baru.png" alt="Logo SI LABAKU" className="w-6 h-6 md:w-8 md:h-8 object-contain" />
+  </div>
+
+  <div style={{ display: 'flex', flexDirection: 'column' }}>
+    <h1 className="text-xl md:text-2xl font-black tracking-tighter">
+      <span className="text-[#f97316]">SI</span>
+      <span className="text-brand-primary ml-1 italic uppercase">LABAKU</span>
+    </h1>
+    <p className="text-[#ffffff44] text-[7px] md:text-[9px] font-black uppercase tracking-[0.2em]">
+      {businessProfile.name || "Laporan Bisnis"}
+    </p>
+  </div>
+
+</div>
 
             <div className="hidden lg:block flex-1 text-center">
               <p className="text-[#ffffff99] text-[9px] font-black uppercase tracking-[0.2em]">Laporan Laba Rugi</p>
