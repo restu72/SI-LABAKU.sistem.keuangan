@@ -70,15 +70,15 @@ export const Login: React.FC = () => {
             </p>
           </div>
         </div>
-        <div className="text-center mt-4">
-          <a 
-            href="/SI-LABAKU.apk" 
+        {/* <div className="text-center mt-4">
+  <a 
+    href="/SI-LABAKU.apk"
     download
-    className="inline-block px-6 py-3 bg-green-600 text-white rounded-full font-bold text-sm hover:bg-green-700 transition-colors"
+    className="inline-block px-6 py-3 bg-green-600 text-white rounded-full"
   >
-    📥 Download APK
+    Download APK
   </a>
-</div>
+</div> */}
 
         <p className="text-center text-[10px] text-brand-muted font-black opacity-30 uppercase tracking-[0.4em]">
           V 1.0.0 SI-LABA
