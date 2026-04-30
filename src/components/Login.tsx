@@ -3,50 +3,44 @@ import { LogIn, ShieldCheck, BarChart3 } from 'lucide-react';
 import { auth } from '../lib/firebase';
 import { 
   GoogleAuthProvider, 
-  signInWithPopup,
-  getRedirectResult  // <--- TAMBAH INI DI SINI
+  signInWithRedirect,  // <-- UBAH INI
+  getRedirectResult    // <-- UBAH INI
 } from 'firebase/auth';
 
 export const Login: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
-  // ↓↓↓ TARUH KODE INI DI SINI ↓↓↓
   React.useEffect(() => {
-    // Cek apakah ada hasil login dari redirect
     const checkRedirectResult = async () => {
       try {
         const result = await getRedirectResult(auth);
         if (result) {
-          // Berhasil login
           console.log('Login success:', result.user);
+          // Nanti otomatis masuk ke dashboard
         }
-      } catch (error) {
-        console.error('Error getting redirect result:', error);
+      } catch (error: any) {
+        console.error('Error:', error);
+        setError(error.message);
       }
     };
 
     checkRedirectResult();
   }, []);
-  // ↑↑↑ SAMPAI SINI ↑↑↑
-
-
 
   const handleGoogleLogin = async () => {
-  const provider = new GoogleAuthProvider();
-  // Tambahin ini biar izinnya jelas
-  provider.addScope('profile');
-  provider.addScope('email');
-  
-  setError(null);
- try {
-  // Coba pakai ini dulu
-  await signInWithPopup(auth, provider);
-} catch (error: any) {
-  console.error('Error with popup:', error);
-}
-  
+    const provider = new GoogleAuthProvider();
+    provider.addScope('profile');
+    provider.addScope('email');
+    
+    setError(null);
+    try {
+      // Ganti pakai Redirect, ini yang paling aman
+      await signInWithRedirect(auth, provider);
+    } catch (error: any) {
+      console.error('Error:', error);
+      setError(error.message);
+    }
   }
-
 
   return (
     <div className="min-h-screen bg-brand-bg flex items-center justify-center p-4">
@@ -98,15 +92,16 @@ export const Login: React.FC = () => {
             </p>
           </div>
         </div>
+        
         <div className="text-center mt-4">
-  <a 
-    href="/SI-LABAKU.apk"
-    download
-    className="inline-block px-6 py-3 bg-green-600 text-white rounded-full"
-  >
-    Download APK
-  </a>
-</div>
+          <a 
+            href="/SI-LABAKU.apk"
+            download
+            className="inline-block px-6 py-3 bg-green-600 text-white rounded-full"
+          >
+            Download APK
+          </a>
+        </div>
 
         <p className="text-center text-[10px] text-brand-muted font-black opacity-30 uppercase tracking-[0.4em]">
           V 1.0.0 SI-LABAKU
