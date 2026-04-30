@@ -3,22 +3,56 @@ import { LogIn, ShieldCheck, BarChart3 } from 'lucide-react';
 import { auth } from '../lib/firebase';
 import { 
   GoogleAuthProvider, 
-  signInWithPopup
+  signInWithPopup,
+  getRedirectResult  // <--- TAMBAH INI DI SINI
 } from 'firebase/auth';
 
 export const Login: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
 
+  // ↓↓↓ TARUH KODE INI DI SINI ↓↓↓
+  React.useEffect(() => {
+    // Cek apakah ada hasil login dari redirect
+    const checkRedirectResult = async () => {
+      try {
+        const result = await getRedirectResult(auth);
+        if (result) {
+          // Berhasil login
+          console.log('Login success:', result.user);
+        }
+      } catch (error) {
+        console.error('Error getting redirect result:', error);
+      }
+    };
+
+    checkRedirectResult();
+  }, []);
+  // ↑↑↑ SAMPAI SINI ↑↑↑
+
+
+
   const handleGoogleLogin = async () => {
-    const provider = new GoogleAuthProvider();
-    setError(null);
+  const provider = new GoogleAuthProvider();
+  // Tambahin ini biar izinnya jelas
+  provider.addScope('profile');
+  provider.addScope('email');
+  
+  setError(null);
+  try {
+    // Coba pakai ini dulu
+    await signInWithPopup(auth, provider);
+  } catch (error: any) {
+    console.error('Error with popup:', error);
+    
+    // Kalau masih error, coba cara alternatif ini
     try {
-      await signInWithPopup(auth, provider);
-    } catch (error: any) {
-      setError(error.message);
-      console.error('Error signing in with Google:', error);
+      await auth.signInWithRedirect(provider);
+    } catch (redirectError: any) {
+      setError(redirectError.message);
+      console.error('Error with redirect:', redirectError);
     }
-  };
+  }
+};
 
   return (
     <div className="min-h-screen bg-brand-bg flex items-center justify-center p-4">
