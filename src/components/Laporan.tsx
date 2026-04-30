@@ -208,7 +208,7 @@ export const Laporan: React.FC<LaporanProps> = ({ sales, expenses, businessProfi
           <div className="relative z-10 flex flex-row items-center justify-between gap-4">
             <div className="flex items-center gap-3">
               <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-brand-primary flex items-center justify-center text-white shadow-lg shrink-0">
-                <BarChart3 className="w-5 h-5 md:w-6 md:h-6" />
+                <img src="/logo-baru.png" alt="Logo SI LABAKU" className="w-6 h-6 md:w-8 md:h-8 object-contain />
               </div>
               <div className="flex flex-col">
                 <h1 className="text-xl md:text-2xl font-black tracking-tighter flex items-center leading-none">

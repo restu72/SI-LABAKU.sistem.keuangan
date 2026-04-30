@@ -114,7 +114,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
         <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="flex items-center gap-4">
             <div className="w-12 h-12 md:w-16 md:h-16 rounded-2xl bg-brand-primary flex items-center justify-center text-white shadow-xl shadow-brand-primary-20">
-              <BarChart3 className="w-6 h-6 md:w-8 md:h-8" />
+              <img src="/logo-baru.png" alt="Logo SI LABAKU" className="w-8 h-8 md:w-10 md:h-10  object-contain />
             </div>
             <div>
               <h1 className="text-xl md:text-3xl font-black tracking-tighter uppercase leading-none">

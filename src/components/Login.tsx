@@ -38,19 +38,13 @@ export const Login: React.FC = () => {
   provider.addScope('email');
   
   setError(null);
-  try {
-    // Coba pakai ini dulu
-    await signInWithPopup(auth, provider);
-  } catch (error: any) {
-    console.error('Error with popup:', error);
-    
-    // Kalau masih error, coba cara alternatif ini
-    try {
-      await auth.signInWithRedirect(provider);
-    } catch (redirectError: any) {
-      setError(redirectError.message);
-      console.error('Error with redirect:', redirectError);
-    }
+ try {
+  // Coba pakai ini dulu
+  await signInWithPopup(auth, provider);
+} catch (error: any) {
+  console.error('Error with popup:', error);
+}
+  
   }
 };
 
@@ -60,7 +54,7 @@ export const Login: React.FC = () => {
         <div className="text-center space-y-4">
           <div className="mx-auto w-24 h-24 bg-brand-primary rounded-[40px] flex items-center justify-center text-white shadow-2xl shadow-brand-primary/20 transition-transform hover:scale-110 duration-500 relative">
             <div className="absolute inset-0 bg-white/10 rounded-[40px] animate-pulse"></div>
-            <BarChart3 className="w-12 h-12 relative z-10" />
+            <img src="/logo-baru.png" alt="Logo SI LABAKU" className="w-16 h-16 object-contain relative z-10" />
           </div>
           <div className="space-y-1">
             <h1 className="text-5xl font-black tracking-tighter flex items-center justify-center">
