@@ -1,0 +1,23 @@
+{
+  "name": "SI LABAKU",
+  "short_name": "SILABAKU",
+  "description": "Sistem Informasi Laba Rugi Keuangan",
+  "theme_color": "#4f46e5",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "orientation": "portrait",
+  "scope": "/",
+  "start_url": "/",
+  "icons": [
+    {
+      "src": "https://picsum.photos/seed/silabakulogo/192/192",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://picsum.photos/seed/silabakulogo/512/512",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
