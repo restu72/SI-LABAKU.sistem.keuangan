@@ -25,7 +25,7 @@ import {
   ArchivedReport,
   BusinessProfile,
 } from "../types";
-import { motion, AnimatePresence } from "motion/react";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface DashboardProps {
   sales: Sale[];

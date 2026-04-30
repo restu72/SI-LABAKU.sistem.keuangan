@@ -3,7 +3,7 @@ import { User, Shield, LogOut, Mail, Calendar, Key, AlertCircle, Building2, MapP
 import { auth } from '../lib/firebase';
 import { signOut } from 'firebase/auth';
 import { BusinessProfile } from '../types';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface SettingsProps {
   profile: BusinessProfile;

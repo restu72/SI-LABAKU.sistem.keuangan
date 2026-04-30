@@ -3,7 +3,7 @@ import { FileText, TrendingUp, TrendingDown, BarChart3, MapPin, User, Building2,
 // @ts-ignore
 import html2pdf from 'html2pdf.js';
 import { Sale, Expense, BusinessProfile, ArchivedReport } from '../types';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface LaporanProps {
   sales: Sale[];

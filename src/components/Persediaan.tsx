@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { Package, Plus, Search, Edit2, Trash2, X, Upload, Camera } from 'lucide-react';
 import { Product } from '../types';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { getBaseName } from '../lib/productUtils';
 
 interface PersediaanProps {

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { ShoppingCart, Plus, Minus, Trash2, CheckCircle, Search, CreditCard, Wallet, Percent, X } from 'lucide-react';
 import { Product } from '../types';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface KasirProps {
   products: Product[];

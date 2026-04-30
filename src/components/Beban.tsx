@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { CreditCard, Plus, Trash2, Calendar, Tag, Edit2, X } from 'lucide-react';
 import { Expense } from '../types';
-import { motion, AnimatePresence } from 'motion/react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface BebanProps {
   expenses: Expense[];
