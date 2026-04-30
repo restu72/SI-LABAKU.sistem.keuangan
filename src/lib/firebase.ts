@@ -3,7 +3,7 @@ import { getAuth } from 'firebase/auth';
 import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyCq3vOgspR1zCvEk5bh9pw8bq7Yrzsw0v4",
+  apiKey: "AIzaSyAGx_tM7z7gCtinEu9-zub_QcMRn95F7r0",
   authDomain: "si-labaku-d7687.firebaseapp.com",
   projectId: "si-labaku-d7687",
   storageBucket: "si-labaku-d7687.firebasestorage.app",
