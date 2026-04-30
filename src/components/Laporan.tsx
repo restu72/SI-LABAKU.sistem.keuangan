@@ -140,7 +140,8 @@ export const Laporan: React.FC<LaporanProps> = ({ sales, expenses, businessProfi
     }
   };
 
-  return (
+ return (
+  <>
     <div className="space-y-6 pb-20 printable">
       <div className="flex items-center justify-between no-print">
         <h2 className="text-2xl font-black flex items-center gap-3 text-brand-text uppercase tracking-tight">
@@ -350,7 +351,7 @@ export const Laporan: React.FC<LaporanProps> = ({ sales, expenses, businessProfi
         </div>
       </div>
     </div>
-
+  
     
     <style>{`
       /* PDF specific overrides to prevent oklab/oklch errors in html2canvas and maintain consistency */
@@ -382,45 +383,45 @@ export const Laporan: React.FC<LaporanProps> = ({ sales, expenses, businessProfi
       .pdf-export-style .text-brand-muted { color: #64748b !important; }
       .pdf-export-style .text-brand-orange { color: #f97316 !important; }
       .pdf-export-style .text-white { color: #ffffff !important; }
-      
-      /* Arbitrary color fixes */
-      .pdf-export-style .text-\[\#f97316\] { color: #f97316 !important; }
-      .pdf-export-style .text-\[\#ffffff44\] { color: rgba(255, 255, 255, 0.2) !important; }
-      .pdf-export-style .text-\[\#ffffff99\] { color: rgba(255, 255, 255, 0.6) !important; }
-      .pdf-export-style .text-\[\#ffffff66\] { color: rgba(255, 255, 255, 0.4) !important; }
-      .pdf-export-style .text-\[\#ffffff0d\] { color: rgba(255, 255, 255, 0.05) !important; }
-      
-      .pdf-export-style .bg-brand-primary { background-color: #0d9488 !important; }
-      .pdf-export-style .bg-brand-success { background-color: #059669 !important; }
-      .pdf-export-style .bg-brand-danger { background-color: #e11d48 !important; }
-      .pdf-export-style .bg-brand-text { background-color: #0f172a !important; }
-      .pdf-export-style .bg-brand-bg { background-color: #fcfaf6 !important; }
-      .pdf-export-style .bg-brand-card { background-color: #ffffff !important; }
-      .pdf-export-style .bg-\[\#ffffff0d\] { background-color: rgba(255, 255, 255, 0.05) !important; }
-      .pdf-export-style .bg-\[\#ffffff1a\] { background-color: rgba(255, 255, 255, 0.1) !important; }
-      
-      .pdf-export-style .border-brand-border { border-color: #f2eee8 !important; }
-      .pdf-export-style .border-brand-primary { border-color: #0d9488 !important; }
-      .pdf-export-style .border-brand-bg { border-color: #fcfaf6 !important; }
 
-      /* Component specific fixes */
-      .pdf-export-style .bg-brand-success\/10 { background-color: rgba(5, 150, 105, 0.1) !important; }
-      .pdf-export-style .bg-brand-danger\/10 { background-color: rgba(225, 29, 72, 0.1) !important; }
-      .pdf-export-style .bg-brand-primary\/10 { background-color: rgba(13, 148, 136, 0.1) !important; }
-      .pdf-export-style .bg-brand-bg\/40 { background-color: rgba(252, 250, 246, 0.4) !important; }
-      .pdf-export-style .bg-brand-bg\/20 { background-color: rgba(252, 250, 246, 0.2) !important; }
-      .pdf-export-style .bg-brand-danger\/\[0.03\] { background-color: rgba(225, 29, 72, 0.03) !important; }
-      .pdf-export-style .bg-brand-success\/5 { background-color: rgba(5, 150, 105, 0.05) !important; }
-      .pdf-export-style .bg-brand-danger\/5 { background-color: rgba(225, 29, 72, 0.05) !important; }
-      
-      /* Ensure table-like rows don't break mid-way */
-      .pdf-export-style section { page-break-inside: avoid; }
-      
-      @media print {
-        .no-print { display: none !important; }
-        body { background: white !important; }
-      }
-    `}</style>
+/* Arbitrary color fixes */
+.pdf-export-style .text-\[\#f97316\] { color: #f97316 !important; }
+.pdf-export-style .text-\[\#ffffff44\] { color: rgba(255, 255, 255, 0.2) !important; }
+.pdf-export-style .text-\[\#ffffff99\] { color: rgba(255, 255, 255, 0.6) !important; }
+.pdf-export-style .text-\[\#ffffff66\] { color: rgba(255, 255, 255, 0.4) !important; }
+.pdf-export-style .text-\[\#ffffff0d\] { color: rgba(255, 255, 255, 0.05) !important; }
+
+.pdf-export-style .bg-brand-primary { background-color: #0d9488 !important; }
+.pdf-export-style .bg-brand-success { background-color: #059669 !important; }
+.pdf-export-style .bg-brand-danger { background-color: #e11d48 !important; }
+.pdf-export-style .bg-brand-text { background-color: #0f172a !important; }
+.pdf-export-style .bg-brand-bg { background-color: #fcfaf6 !important; }
+.pdf-export-style .bg-brand-card { background-color: #ffffff !important; }
+.pdf-export-style .bg-\[\#ffffff0d\] { background-color: rgba(255, 255, 255, 0.05) !important; }
+.pdf-export-style .bg-\[\#ffffff1a\] { background-color: rgba(255, 255, 255, 0.1) !important; }
+
+.pdf-export-style .border-brand-border { border-color: #f2eee8 !important; }
+.pdf-export-style .border-brand-primary { border-color: #0d9488 !important; }
+.pdf-export-style .border-brand-bg { border-color: #fcfaf6 !important; }
+
+/* Component specific fixes */
+.pdf-export-style .bg-brand-success\/10 { background-color: rgba(5, 150, 105, 0.1) !important; }
+.pdf-export-style .bg-brand-danger\/10 { background-color: rgba(225, 29, 72, 0.1) !important; }
+.pdf-export-style .bg-brand-primary\/10 { background-color: rgba(13, 148, 136, 0.1) !important; }
+.pdf-export-style .bg-brand-bg\/40 { background-color: rgba(252, 250, 246, 0.4) !important; }
+.pdf-export-style .bg-brand-bg\/20 { background-color: rgba(252, 250, 246, 0.2) !important; }
+.pdf-export-style .bg-brand-danger\/\[0.03\] { background-color: rgba(225, 29, 72, 0.03) !important; }
+.pdf-export-style .bg-brand-success\/5 { background-color: rgba(5, 150, 105, 0.05) !important; }
+.pdf-export-style .bg-brand-danger\/5 { background-color: rgba(225, 29, 72, 0.05) !important; }
+
+/* Ensure table-like rows don't break mid-way */
+.pdf-export-style section { page-break-inside: avoid; }
+
+@media print {
+  .no-print { display: none !important; }
+  body { background: white !important; }
+}
+`}</style>
 
       {/* Archive Modal */}
       <AnimatePresence>
@@ -434,7 +435,7 @@ export const Laporan: React.FC<LaporanProps> = ({ sales, expenses, businessProfi
             >
               <div className="p-6 border-b border-brand-border flex justify-between items-center bg-brand-card rounded-t-[28px]">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-brand-primary-10 flex items-center justify-center text-brand-primary">
+                  <div className="w-10 h-10 rounded-xl bg-brand-primary/10 flex items-center justify-center text-brand-primary">
                     <History className="w-5 h-5" />
                   </div>
                   <div>
@@ -547,6 +548,7 @@ export const Laporan: React.FC<LaporanProps> = ({ sales, expenses, businessProfi
                                  {archive.netProfit < 0 && '- '}Rp {Math.abs(archive.netProfit).toLocaleString('id-ID')}
                                </p>
                              </div>
+                             
                              <div className="w-[1px] h-10 bg-brand-border hidden md:block"></div>
                              <div className="text-right">
                                <p className="text-[9px] font-black text-brand-muted uppercase tracking-widest opacity-60 mb-0.5">Pendapatan</p>
@@ -567,6 +569,6 @@ export const Laporan: React.FC<LaporanProps> = ({ sales, expenses, businessProfi
           </div>
         )}
       </AnimatePresence>
-    </div>
+    </>
   );
 };
