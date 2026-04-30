@@ -1,0 +1,12 @@
+{
+  "background_color": "#ffffff",
+  "dir": "ltr",
+  "display": "standalone",
+  "name": "SI-LABAKU",
+  "orientation": "any",
+  "scope": "/",
+  "short_name": "SI-LABAKU",
+  "start_url": "/",
+  "theme_color": "hsl(160, 84%, 39%)",
+  "description": "Sistem Informasi Keuangan Laba Rugi"
+}
