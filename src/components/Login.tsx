@@ -49,10 +49,12 @@ import React, { useState } from 'react';
           </div>
           <div className="space-y-1">
             <h1 className="text-5xl font-black tracking-tighter flex items-center justify-center">
-              <span className="text-[#f97316]">SI</span>
-              <span className="text-brand-primary ml-2">LABAKU</span>
-            </h1>
-            <p className="text-brand-muted font-bold tracking-[0.1em] uppercase text-[12px]">SISTEM INFORMASI LABA RUGI KEUANGAN</p>
+  <span style={{ color: '#f97316' }}>SI</span>
+  <span className="text-brand-primary ml-2">LABAKU</span>
+</h1>
+<p className="text-brand-muted font-bold uppercase text-[12px]">
+  SISTEM INFORMASI LABA RUGI KEUANGAN
+</p>
           </div>
         </div>
 
