@@ -39,24 +39,6 @@ import React, { useState } from 'react';
      }
     };
 
-    checkRedirectResult();
-  },[navigate]);
-
-  const handleGoogleLogin = async () => {
-    const provider = new GoogleAuthProvider();
-    provider.addScope('profile');
-    provider.addScope('email');
-    
-    setError(null);
-    try {
-      // Ganti pakai Redirect, ini yang paling aman
-      await signInWithRedirect(auth, provider);
-    } catch (error: any) {
-      console.error('Error:', error);
-      setError(error.message);
-    }
-  }
-
   return (
     <div className="min-h-screen bg-brand-bg flex items-center justify-center p-4">
       <div className="w-full max-w-lg space-y-8">
