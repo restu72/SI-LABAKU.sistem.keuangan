@@ -56,4 +56,4 @@ export interface ArchivedReport {
   expensesCount: number;
 }
 
-export type AppView = 'kasir' | 'persediaan' | 'beban' | 'laporan' | 'dashboard' | 'settings' | 'laporan-archive';
+export type AppView = 'kasir' | 'persediaan' | 'beban' | 'laporan' | 'dashboard' | 'settings' | 'laporan-archive' | 'log-aktivitas';

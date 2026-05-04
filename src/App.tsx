@@ -1,8 +1,3 @@
-/**
- * @license
- * SPDX-License-Identifier: Apache-2.0
- */
-
 import { useState, useEffect } from 'react';
 import { 
   LayoutDashboard, 
@@ -15,7 +10,8 @@ import {
   LogOut,
   BarChart3,
   Sun,
-  Moon
+  Moon,
+  Activity // <-- TAMBAH INI ICON
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { AppView } from './types';
@@ -27,6 +23,7 @@ import { Beban } from './components/Beban';
 import { Laporan } from './components/Laporan';
 import { Settings } from './components/Settings';
 import { Login } from './components/Login';
+import { LogAktivitas } from './components/LogAktivitas'; // <-- TAMBAH INI IMPORT
 import { auth } from './lib/firebase';
 import { onAuthStateChanged, User } from 'firebase/auth';
 
@@ -34,6 +31,7 @@ export default function App() {
   const [view, setView] = useState<AppView>('dashboard');
   const [user, setUser] = useState<User | null>(null);
   const [authLoading, setAuthLoading] = useState(true);
+  const [isAdmin, setIsAdmin] = useState(false); // <-- TAMBAH INI STATE
   const [theme, setTheme] = useState<'light' | 'dark'>(() => {
     if (typeof window !== 'undefined') {
       return (localStorage.getItem('theme') as 'light' | 'dark') || 'light';
@@ -55,6 +53,11 @@ export default function App() {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setUser(user);
       setAuthLoading(false);
+      
+      // <-- TAMBAH INI: Cek apakah login dari mode admin
+      // Cara simpelnya cek dari URL atau state, tapi di sini kita pakai localStorage buat nyimpen mode
+      const loginMode = localStorage.getItem('loginMode');
+      setIsAdmin(loginMode === 'admin');
     });
     return () => unsubscribe();
   }, []);
@@ -118,18 +121,30 @@ export default function App() {
         return <Laporan sales={sales} expenses={expenses} businessProfile={businessProfile} archivedReports={archivedReports} defaultShowArchive={true} />;
       case 'settings':
         return <Settings profile={businessProfile} onUpdateProfile={updateBusinessProfile} onResetData={resetAllData} />;
+      case 'log-aktivitas': // <-- TAMBAH INI CASE
+        return <LogAktivitas />; // <-- TAMBAH INI
       default:
         return <Dashboard sales={sales} products={products} expenses={expenses} onNavigate={setView} />;
     }
   };
 
-  const navItems = [
+  // Menu dasar
+  let navItems = [
     { id: 'dashboard' as AppView, label: 'Beranda', icon: BarChart3 },
     { id: 'kasir' as AppView, label: 'Kasir', icon: ShoppingCart },
     { id: 'persediaan' as AppView, label: 'Stok', icon: Package },
     { id: 'beban' as AppView, label: 'Beban', icon: CreditCard },
     { id: 'settings' as AppView, label: 'Pengaturan', icon: SettingsIcon },
   ];
+
+  // Kalau admin, tambah menu Log Aktivitas
+  if (isAdmin) {
+    navItems.splice(navItems.length - 1, 0, { 
+      id: 'log-aktivitas' as AppView, 
+      label: 'Log Aktivitas', 
+      icon: Activity 
+    });
+  }
 
   const currentNavItem = navItems.find(n => n.id === view);
 
@@ -265,6 +280,3 @@ export default function App() {
     </div>
   );
 }
-
-
-
