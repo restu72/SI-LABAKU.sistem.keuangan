@@ -11,6 +11,7 @@ import { useNavigate } from 'react-router-dom';
 export const Login: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [loginMode, setLoginMode] = useState<'user' | 'admin'>('user'); // <-- TAMBAH INI
+  const [userRole, setUserRole] = useState<'user' | 'admin'>('user');
   const navigate = useNavigate();
 
   React.useEffect(() => {
